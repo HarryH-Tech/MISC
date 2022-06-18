@@ -22,6 +22,7 @@ export const {
     bp1: "(min-width: 480px)",
   },
   utils: {
-    marginX: (value: any) => ({ marginLeft: value, marginRight: value }),
+    m: (value: any) => ({ margin: value }),
+    ta: (value: any) => ({ textAlign: value }),
   },
 });

@@ -1,5 +1,7 @@
 import { styled } from "@stitches/react";
 
-export const Container = styled("div", {
-  borderRadius: "1rem",
+export const SearchInput = styled("input", {
+  borderRadius: "0.6rem",
+  padding: "0.6rem",
+  fontWeight: "bold",
 });
