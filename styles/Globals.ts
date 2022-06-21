@@ -33,3 +33,11 @@ export const Button = styled("button", {
     transform: "translateY(0.2rem)",
   },
 });
+
+export const Table = styled("table", {
+  border: "2px solid black",
+});
+
+export const TD = styled("td", {
+  padding: "0.4rem",
+});
