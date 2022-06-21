@@ -59,7 +59,6 @@ function Location(): JSX.Element {
         version: res.data.version,
       });
       setMapCoords({ lng: res.data.longitude, lat: res.data.latitude });
-      console.log(res.data);
     });
   }, []);
 
@@ -181,8 +180,11 @@ function Location(): JSX.Element {
           ) : null}
         </tbody>
       </Table>
-
-      <LoadScript googleMapsApiKey="AIzaSyBndxS-zvfBPz_a6Yh9uK5JqeRGDenRMzQ">
+      <br />
+      <br />
+      <LoadScript
+        googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
+      >
         <GoogleMap
           center={mapCoords}
           zoom={15}

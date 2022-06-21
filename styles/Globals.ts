@@ -8,6 +8,7 @@ export const Container = styled("div", {
   border: `2px solid ${theme.colors.secondary}`,
   borderRadius: "1rem",
   padding: "1rem",
+  transition: "box-shadow 0.2s",
   "&:hover": {
     boxShadow: "2px 2px 2px black",
   },
@@ -36,6 +37,7 @@ export const Button = styled("button", {
 
 export const Table = styled("table", {
   border: "2px solid black",
+  margin: "auto",
 });
 
 export const TD = styled("td", {
