@@ -3,7 +3,7 @@ import axios from "axios";
 import { Table, TD } from "../styles/Globals";
 import ReactTooltip from "react-tooltip";
 import { AiFillInfoCircle } from "react-icons/ai";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, useJsApiLoader } from "@react-google-maps/api";
 
 interface ILocationData {
   asn: string;
@@ -82,6 +82,11 @@ function Location(): JSX.Element {
     border: "2px solid black",
     borderRadius: "2rem",
   };
+
+  const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: "YOUR_API_KEY", // ,
+    // ...otherOptions
+  });
 
   return (
     <>
@@ -189,9 +194,7 @@ function Location(): JSX.Element {
           center={mapCoords}
           zoom={15}
           mapContainerStyle={containerStyle}
-        >
-          {/* Child components, such as markers, info windows, etc. */}
-        </GoogleMap>
+        ></GoogleMap>
       </LoadScript>
       <br />
     </>

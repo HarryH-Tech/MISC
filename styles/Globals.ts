@@ -5,7 +5,7 @@ export const globalStyles = globalCss({
 });
 
 export const Container = styled("div", {
-  border: `2px solid ${theme.colors.secondary}`,
+  border: `2px solid ${theme.colors.primary}`,
   borderRadius: "1rem",
   padding: "1rem",
   transition: "box-shadow 0.2s",

@@ -3,6 +3,8 @@ import { SearchInput } from "../styles/SearchName";
 import axios from "axios";
 import { useState, useEffect, MouseEvent } from "react";
 import Swal from "sweetalert2";
+import ReactTooltip from "react-tooltip";
+import { AiFillInfoCircle } from "react-icons/ai";
 
 interface ISearchData {
   name: string;
@@ -17,6 +19,8 @@ interface INameInfo {
 }
 
 function SearchName(): JSX.Element {
+  const [tooltip, showTooltip] = useState<boolean>(true);
+
   const [searchData, setSearchData] = useState<ISearchData>({
     name: "",
     country: "AF",
@@ -79,8 +83,6 @@ function SearchName(): JSX.Element {
     ).find((key) => {
       return countries[key] === e.target.value;
     });
-    console.log(countryCode);
-
     setSearchData({ ...searchData, country: countryCode });
   };
 
@@ -96,7 +98,7 @@ function SearchName(): JSX.Element {
           placeholder="Enter A Name..."
         />
         <br /> <br />
-        <select onChange={(e) => handleCountryChange(e)} defaultValue="">
+        <select onChange={(e) => handleCountryChange(e)} defaultValue=" ">
           {countries
             ? Object.values(countries).map((country, index) => {
                 return <option key={index}>{country}</option>;
@@ -107,10 +109,23 @@ function SearchName(): JSX.Element {
         <Button onClick={(event) => fetchNameAge(event)}>Search</Button>
         {nameInfo ? (
           <div style={{ textAlign: "center" }}>
-            <p>Name: {name}</p>
-            <p>Count: {count}</p>
-            <p>Age: {age}</p>
-            <p>Country ID: {countryId}</p>
+            {count ? (
+              <p
+                data-tip="The number of entries used to estimate the age of the name."
+                onMouseEnter={() => showTooltip(true)}
+                onMouseLeave={() => {
+                  showTooltip(false);
+                  setTimeout(() => showTooltip(true), 50);
+                }}
+                style={{ width: "40%", margin: "auto" }}
+              >
+                {tooltip && <ReactTooltip effect="solid" />}
+                <AiFillInfoCircle /> Count: {count}
+              </p>
+            ) : (
+              ""
+            )}
+            {age ? <p>Estimated Age: {age}</p> : ""}
           </div>
         ) : null}
       </Container>
