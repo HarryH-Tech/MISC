@@ -45,21 +45,26 @@ function Location(): JSX.Element {
   });
 
   useEffect(() => {
-    axios.get("https://ipapi.co/json/").then((res) => {
-      setLocationData({
-        asn: res.data.asn,
-        city: res.data.city,
-        countryName: res.data.country_name,
-        countryPopulation: res.data.country_population,
-        countryTld: res.data.country_tld,
-        ip: res.data.ip,
-        org: res.data.org,
-        postCode: res.data.postal,
-        region: res.data.region_code,
-        version: res.data.version,
+    axios
+      .get("https://ipapi.co/json/")
+      .then((res) => {
+        setLocationData({
+          asn: res.data.asn,
+          city: res.data.city,
+          countryName: res.data.country_name,
+          countryPopulation: res.data.country_population,
+          countryTld: res.data.country_tld,
+          ip: res.data.ip,
+          org: res.data.org,
+          postCode: res.data.postal,
+          region: res.data.region_code,
+          version: res.data.version,
+        });
+        setMapCoords({ lng: res.data.longitude, lat: res.data.latitude });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      setMapCoords({ lng: res.data.longitude, lat: res.data.latitude });
-    });
   }, []);
 
   const {

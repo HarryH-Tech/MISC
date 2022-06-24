@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-import Header from "../components/Header";
+import Coopilot from "./Coopilot";
 import SearchName from "./SearchName";
 import Location from "./Location";
 
@@ -10,9 +10,9 @@ const Home: NextPage = () => {
   globalStyles();
   return (
     <>
-      <Header />
       <SearchName />
       <Location />
+      <Coopilot />
     </>
   );
 };

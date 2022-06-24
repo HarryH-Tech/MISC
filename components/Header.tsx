@@ -15,6 +15,9 @@ function Header() {
         <Link href="/SearchName">
           <a>Search Name</a>
         </Link>
+        <Link href="/Coopilot">
+          <a>Flying with Coopilot</a>
+        </Link>
       </HeaderLinksContainer>
     </>
   );
