@@ -43,3 +43,8 @@ export const Table = styled("table", {
 export const TD = styled("td", {
   padding: "0.4rem",
 });
+
+export const Grid = styled("div", {
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
+});
